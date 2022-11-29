@@ -33,12 +33,14 @@ class Employee:
         return self_bdate < other_bdate
 
 
-def str_to_date (self_date, other_date):
+def str_to_date(self_date, other_date):
     dt1 = self_date.split('.')
     dt2 = self_date.split('.')
     self_date=dt.date(int(dt1[2]),int(dt1[1]),int(dt1[0]))
-    other_date = dt.date(int(dt2[2]), int(dt2[1]), int(dt[0]))
-    return self_date , other_date
+    other_date = dt.date(int(dt2[2]), int(dt2[1]), int(dt2[0]))
+    return self_date, other_date
+
+
 class Department:
     def __init__(self, title, chief=None, employees=None):
         self.title = title
@@ -46,6 +48,13 @@ class Department:
             employees = list()
         self.employees = employees
         self.chief = chief
+
+    def append(self, emp):
+        self.employees.append(emp)
+
+    def __str__(self):
+        return f"Отдел:{self.title},начальник: {self.chief}, количество сотрудников: {len(self.employees)}"
+
 
     def print_emloyees(self):
         for emp in self.employees:
