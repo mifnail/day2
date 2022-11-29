@@ -55,13 +55,12 @@ class Department:
     def __str__(self):
         return f"Отдел:{self.title},начальник: {self.chief}, количество сотрудников: {len(self.employees)}"
 
-
     def print_emloyees(self):
         for emp in self.employees:
             print(emp)
-    def print_employees_on_leave(self, status=True):
+    def print_employees_on_live(self, status=True):
         for emp in self.employees:
-            if emp.on_leave==status:
+            if emp.on_live==status:
                 print(emp)
 
 
@@ -69,15 +68,15 @@ class Department:
 
 
 ivanov= Employee(1, 'Иванов',"01.01.2000",100000)
-petrov = Employee(1, 'Петров',"01.01.1990",200000, True)
-sidorov = Employee(1, 'Сидоров',"05.05.2005",70000, True)
+petrov = Employee(2, 'Петров',"01.01.1990",200000, True)
+sidorov = Employee(3, 'Сидоров',"05.05.2005",70000, True)
 print(ivanov>petrov)
 print(ivanov<petrov)
 print(ivanov != petrov)
 
-arhiv= Department('Архив', epmloyees=[petrov])
+arhiv= Department('Архив',employees=[petrov])
 arhiv.append (ivanov)
 arhiv.append (sidorov)
-arhiv.print_employees_on_leave(False)
+arhiv.print_employees_on_live(False)
 
 
